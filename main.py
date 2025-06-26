@@ -9,8 +9,12 @@ def main():
 
     while True:
         print(game.display_table())
-        game.commence_turn()
+        if game.has_won():
+            print("Someone won!")
         game.next_player()
+        game.commence_turn()
+        if game.has_won():
+            print("Someone won!")
         print(game.display_table())
 
 
@@ -26,7 +30,7 @@ def fetch_player(player_n: int):
     return Player(name, symbol)
 
 
-# TODO: Movie this tic-tac-toe display stuff into a class
+# TODO: Find a way to make the tic-tac-toe generate diagnol paths heading south-west
 
 if __name__ == "__main__":
     main()
